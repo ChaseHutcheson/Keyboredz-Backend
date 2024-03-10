@@ -1,6 +1,10 @@
 class User < ApplicationRecord
-    has_secure_password
-    validates :name, presence: true
+    validates :username, presence: true, uniqueness: true, length: { minimum: 4, maximum: 20 }
+    # Add any other validations you require for username
+    
     validates :email, presence: true, uniqueness: true
-end
-   
+    # Add any other validations you require for email
+  
+    has_secure_password
+  end
+  
