@@ -4,12 +4,18 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to root_path, notice: 'User successfully created!'
+    existing_user = User.find_by(email: user_params[:email])
+
+    if existing_user
+      render json: { error: 'User with the email already exists' }, status: :unprocessable_entity
     else
-      render :new
+      @user = User.new(user_params)
+
+      if @user.save
+        render json: @user, status: :created
+      else
+        render json: { error: @user.errors.full_messages.join(', ') }, status: :unprocessable_entity
+      end
     end
   end
 

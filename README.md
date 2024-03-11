@@ -1,24 +1,12 @@
-# README
+# Keyboredz-Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby version:
 
-Things you may want to cover:
+This API requires Ruby version 3.2.3 (2024-01-18 revision 52bb2ac0a6) [x64-mingw-ucrt] and Rails version 7.1.3.2
 
-* Ruby version
+## Setup Instructions:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Clone the repo
+2. Open the repo in VsCode
+3. Run: <pre>rails db:migrate</pre>
+4. Run: <pre>rails server</pre>
