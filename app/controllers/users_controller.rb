@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    # Permit top-level keys directly
+    params.permit(:username, :email, :password, :password_confirmation)
   end
 end
